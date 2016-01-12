@@ -42,7 +42,7 @@ public class UserDaoTest {
 		u.setNickname("zhuani21");
 		userDao.insertUser(u);
 		LoginAuth loginAuth = new LoginAuth();
-		loginAuth.setUser_id(u.getId());
+		loginAuth.setUserId(u.getId());
 		loginAuth.setUsername(u.getNickname());
 		loginAuth.setPassword("1234");
 		loginAuthDao.insertLoginAuth(loginAuth);
