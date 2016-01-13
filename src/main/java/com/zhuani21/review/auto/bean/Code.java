@@ -1,4 +1,4 @@
-package com.zhuani21.review.bean;
+package com.zhuani21.review.auto.bean;
 
 public class Code {
     private Integer id;

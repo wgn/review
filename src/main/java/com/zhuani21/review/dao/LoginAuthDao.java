@@ -1,8 +1,10 @@
 package com.zhuani21.review.dao;
 
-import com.zhuani21.review.bean.LoginAuth;
+import com.zhuani21.review.auto.bean.User;
+import com.zhuani21.review.vo.LoginAuthCustomVo;
 
 public interface LoginAuthDao {
-	void insertLoginAuth(LoginAuth loginAuth) throws Exception;
-	int findUserIdViaUsernamePassword(LoginAuth loginAuth) throws Exception;
+	
+	public User findUserByLoginAuth(LoginAuthCustomVo loginAuthCustomVo) throws Exception;
+	
 }

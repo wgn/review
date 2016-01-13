@@ -7,17 +7,17 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zhuani21.review.bean.Code;
-import com.zhuani21.review.bean.User;
-import com.zhuani21.review.bean.UserExample;
-import com.zhuani21.review.bean.UserExample.Criteria;
+import com.zhuani21.review.auto.bean.User;
+import com.zhuani21.review.auto.bean.UserExample;
+import com.zhuani21.review.auto.bean.UserExample.Criteria;
+import com.zhuani21.review.auto.mapper.UserMapper;
 
 public class CodeMapperTest {
 	UserMapper userMapper = null;
 
 	@Before
 	public void setUpBeforeClass() throws Exception {
-		
+
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring/applicationContext-dao.xml");
 		userMapper = (UserMapper) applicationContext.getBean("userMapper");
 	}
@@ -28,7 +28,7 @@ public class CodeMapperTest {
 		Criteria criteria = example.createCriteria();
 		criteria.andMobileLike("158%");
 		List<User> code = userMapper.selectByExample(example);
-		System.out.println(code);
+		System.out.println(code.get(1).getNickname());
 	}
 
 }

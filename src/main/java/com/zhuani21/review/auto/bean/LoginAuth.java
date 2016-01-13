@@ -1,4 +1,4 @@
-package com.zhuani21.review.bean;
+package com.zhuani21.review.auto.bean;
 
 public class LoginAuth {
     private Integer id;

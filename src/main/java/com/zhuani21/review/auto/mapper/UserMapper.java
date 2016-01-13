@@ -1,7 +1,7 @@
-package com.zhuani21.review.mapper;
+package com.zhuani21.review.auto.mapper;
 
-import com.zhuani21.review.bean.User;
-import com.zhuani21.review.bean.UserExample;
+import com.zhuani21.review.auto.bean.User;
+import com.zhuani21.review.auto.bean.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

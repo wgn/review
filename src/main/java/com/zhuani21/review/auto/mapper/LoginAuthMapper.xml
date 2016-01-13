@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhuani21.review.mapper.CodeMapper" >
-  <resultMap id="BaseResultMap" type="com.zhuani21.review.bean.Code" >
+<mapper namespace="com.zhuani21.review.auto.mapper.LoginAuthMapper" >
+  <resultMap id="BaseResultMap" type="com.zhuani21.review.auto.bean.LoginAuth" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="type" property="type" jdbcType="VARCHAR" />
-    <result column="code" property="code" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="BIT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,15 +67,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, type, code, name, parent_id
+    id, user_id, username, password, status
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhuani21.review.bean.CodeExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhuani21.review.auto.bean.LoginAuthExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from code
+    from login_auth
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +86,85 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from code
+    from login_auth
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from code
+    delete from login_auth
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhuani21.review.bean.CodeExample" >
-    delete from code
+  <delete id="deleteByExample" parameterType="com.zhuani21.review.auto.bean.LoginAuthExample" >
+    delete from login_auth
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhuani21.review.bean.Code" >
-    insert into code (id, type, code, 
-      name, parent_id)
-    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.zhuani21.review.auto.bean.LoginAuth" >
+    insert into login_auth (id, user_id, username, 
+      password, status)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{status,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.zhuani21.review.bean.Code" >
-    insert into code
+  <insert id="insertSelective" parameterType="com.zhuani21.review.auto.bean.LoginAuth" >
+    insert into login_auth
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="type != null" >
-        type,
+      <if test="userId != null" >
+        user_id,
       </if>
-      <if test="code != null" >
-        code,
+      <if test="username != null" >
+        username,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="password != null" >
+        password,
       </if>
-      <if test="parentId != null" >
-        parent_id,
+      <if test="status != null" >
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="type != null" >
-        #{type,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
       </if>
-      <if test="code != null" >
-        #{code,jdbcType=VARCHAR},
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
       </if>
-      <if test="parentId != null" >
-        #{parentId,jdbcType=INTEGER},
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhuani21.review.bean.CodeExample" resultType="java.lang.Integer" >
-    select count(*) from code
+  <select id="countByExample" parameterType="com.zhuani21.review.auto.bean.LoginAuthExample" resultType="java.lang.Integer" >
+    select count(*) from login_auth
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update code
+    update login_auth
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.type != null" >
-        type = #{record.type,jdbcType=VARCHAR},
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.code != null" >
-        code = #{record.code,jdbcType=VARCHAR},
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.parentId != null" >
-        parent_id = #{record.parentId,jdbcType=INTEGER},
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=BIT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -172,40 +172,40 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update code
+    update login_auth
     set id = #{record.id,jdbcType=INTEGER},
-      type = #{record.type,jdbcType=VARCHAR},
-      code = #{record.code,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR},
-      parent_id = #{record.parentId,jdbcType=INTEGER}
+      user_id = #{record.userId,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhuani21.review.bean.Code" >
-    update code
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhuani21.review.auto.bean.LoginAuth" >
+    update login_auth
     <set >
-      <if test="type != null" >
-        type = #{type,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="code != null" >
-        code = #{code,jdbcType=VARCHAR},
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="parentId != null" >
-        parent_id = #{parentId,jdbcType=INTEGER},
+      <if test="status != null" >
+        status = #{status,jdbcType=BIT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhuani21.review.bean.Code" >
-    update code
-    set type = #{type,jdbcType=VARCHAR},
-      code = #{code,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      parent_id = #{parentId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.zhuani21.review.auto.bean.LoginAuth" >
+    update login_auth
+    set user_id = #{userId,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,4 +1,4 @@
-package com.zhuani21.review.bean;
+package com.zhuani21.review.auto.bean;
 
 import java.util.ArrayList;
 import java.util.Date;
