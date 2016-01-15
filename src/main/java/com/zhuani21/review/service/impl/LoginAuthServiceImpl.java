@@ -9,7 +9,7 @@ import com.zhuani21.review.dao.LoginAuthDao;
 import com.zhuani21.review.service.LoginAuthService;
 import com.zhuani21.review.vo.LoginAuthCustomVo;
 
-public class LoginAuthSerivceImpl implements LoginAuthService {
+public class LoginAuthServiceImpl implements LoginAuthService {
 	@Autowired
 	private LoginAuthDao LoginAuthDao;
 

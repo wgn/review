@@ -26,6 +26,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<log4j-core.version>2.0-rc1</log4j-core.version>
 		<commons.logging.version>1.1.1</commons.logging.version>
+		<aspectj.version>1.7.4</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -135,6 +136,14 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!--  spring -->
+		<!-- aop的包，这个比较坑，AOP依赖写的 <optional>true</optional>，但是没有就报错 -->
+		<dependency>
+	    	<groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>${aspectj.version}</version>
+		    <scope>compile</scope>
+	    </dependency>
+		<!-- aop的包 -->
 		<!--  mybatis spring 整合包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
