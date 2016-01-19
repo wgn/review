@@ -13,7 +13,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-8 col-md-offset-2">
-				你好！${user.nickname}
+				你好！${user.nickname}<br/>
+				<a href="code/list.action">编码设置</a>
 			</div>
 		</div>
 	</div>
