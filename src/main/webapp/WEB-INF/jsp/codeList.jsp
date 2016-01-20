@@ -24,6 +24,7 @@
 									</c:forEach>
 							</select></td>
 							<td><input type="submit" value="查询" /></td>
+							<td><a href="${pageContext.request.contextPath }/code/add.action">新增</a></td>
 						</tr>
 					</table>
 					编码映射列表：
@@ -46,7 +47,8 @@
 									<td>${code.code}</td>
 									<td>${code.name }</td>
 									<td>${code.parentId }</td>
-									<td><a href="${pageContext.request.contextPath }/code/update.action?id=${code.id}">修改</a></td>
+									<td><a href="${pageContext.request.contextPath }/code/add.action?id=${code.id}">新增</a> | 
+									<a href="${pageContext.request.contextPath }/code/edit.action?id=${code.id}">修改</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
