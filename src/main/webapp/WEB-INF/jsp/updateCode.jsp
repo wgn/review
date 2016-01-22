@@ -7,7 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-<title>增加编码映射</title>
+<title><c:choose>
+		<c:when test="${opType=='add' }">增加</c:when>
+		<c:when test="${opType=='edit' }">修改</c:when>
+	</c:choose>编码映射</title>
 </head>
 <body>
 	<div class="container">
@@ -22,19 +25,19 @@
 						</tr>
 						<tr>
 							<td>类型：</td>
-							<td><input type="text" name="type" value="${code.type }" /> </td>
+							<td><input type="text" name="type" value="${code.type }" /></td>
 						</tr>
 						<tr>
 							<td>编码：</td>
-							<td><input type="text" name="type" value="${code.code }" /> </td>
+							<td><input type="text" name="type" value="${code.code }" /></td>
 						</tr>
 						<tr>
 							<td>名称：</td>
-							<td><input type="text" name="type" value="${code.name }" /> </td>
+							<td><input type="text" name="type" value="${code.name }" /></td>
 						</tr>
 						<tr>
 							<td>上级编码：</td>
-							<td><input type="text" name="type" value="${code.parentId }" /> </td>
+							<td><input type="text" name="type" value="${code.parentId }" /></td>
 						</tr>
 						<tr>
 							<td><input type="submit" value="保存" /></td>

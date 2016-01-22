@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zhuani21.review.bean.CodeCustom;
@@ -36,8 +37,12 @@ public class CodeController {
 		modelAndView.setViewName("codeList");
 		return modelAndView;
 	}
-	@RequestMapping("/add")
+	@RequestMapping(method={RequestMethod.GET},value={"/add"})
 	public ModelAndView add(HttpServletRequest req,HttpServletResponse resp) throws Exception {
+		return addAndEdit(req,resp,"add");
+	}
+	@RequestMapping(value={"/add"},method={RequestMethod.POST})
+	public ModelAndView save(HttpServletRequest req,HttpServletResponse resp) throws Exception {
 		return addAndEdit(req,resp,"add");
 	}
 	@RequestMapping("/edit")
