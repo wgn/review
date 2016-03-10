@@ -13,8 +13,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-8 col-md-offset-2">
+				<c:if test="${loginErrorMsg!=null}">
+					<font color="red">${loginErrorMsg }</font>
+				</c:if>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-8 col-md-offset-2">
 				<form action="${pageContext.request.contextPath }/login.action" method="post">
-					 用户名：<input type="text" name="username"/><br/>
+					 用户名：<input type="text" name="username" value="${username }"/><br/>
 					 密码：<input type="password" name="password"/><br/>
 					 <input type="submit" value="登陆">
 				</form>

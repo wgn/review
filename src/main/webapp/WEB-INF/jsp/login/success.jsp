@@ -14,7 +14,8 @@
 		<div class="row">
 			<div class="col-xs-8 col-md-offset-2">
 				你好！${user.nickname}<br/>
-				<a href="code/list.action">编码设置</a>
+				<a href="code/list.action">编码设置</a><br/>
+				<a href="job/list.action">复习管理</a><br/>
 			</div>
 		</div>
 	</div>

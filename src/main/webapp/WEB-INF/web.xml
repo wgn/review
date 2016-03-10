@@ -7,10 +7,9 @@
 	<context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:spring/applicationContext_dao.xml
+            classpath:spring/applicationContext_dao.xml,
             classpath:spring/applicationContext_transaction.xml,
-            classpath:spring/applicationContext_service.xml,
-            classpath:spring/applicationContext_action.xml,
+            classpath:spring/applicationContext_service.xml
         </param-value>
     </context-param>
     	<!-- 加载spring容器 -->
@@ -21,18 +20,21 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/applicationContext_action.xml</param-value>
+		<param-value>classpath:springmvc/applicationContext_action.xml</param-value>
 		</init-param>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.action</url-pattern>
 	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

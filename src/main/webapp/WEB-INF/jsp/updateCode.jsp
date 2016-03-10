@@ -11,17 +11,38 @@
 		<c:when test="${opType=='add' }">增加</c:when>
 		<c:when test="${opType=='edit' }">修改</c:when>
 	</c:choose>编码映射</title>
+<script type="text/javascript">
+
+function goBack(){
+	//window.history.back(-1);
+	window.location.href="${pageContext.request.contextPath }/code/list.action";
+	//window.navigate("b.html");
+	//self.location=’b.html’;
+	//top.location=’b.html’;
+}
+function save(){
+	document.codeForm.submit();
+}
+
+</script>
 </head>
 <body>
 	<div class="container">
+	<div class="row">
+			<div class="col-xs-8 col-md-offset-2">
+				<c:if test="${errorMsg!=null}">
+					<font color="red">${errorMsg }</font>
+				</c:if>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-xs-8 col-md-offset-2">
-				<form action="${pageContext.request.contextPath }/code/${opType }.action" method="post">
+				<form id="codeForm" action="${pageContext.request.contextPath }/code/${opType }.action" method="post">
 
 					<table class="table table-bordered">
 						<tr>
 							<td>ID：</td>
-							<td></td>
+							<td><input type="text" disabled="disabled" hidden="true" name="id" value="${code.id }" /></td>
 						</tr>
 						<tr>
 							<td>类型：</td>
@@ -29,18 +50,19 @@
 						</tr>
 						<tr>
 							<td>编码：</td>
-							<td><input type="text" name="type" value="${code.code }" /></td>
+							<td><input type="text" name="code" value="${code.code }" /></td>
 						</tr>
 						<tr>
 							<td>名称：</td>
-							<td><input type="text" name="type" value="${code.name }" /></td>
+							<td><input type="text" name="name" value="${code.name }" /></td>
 						</tr>
 						<tr>
 							<td>上级编码：</td>
-							<td><input type="text" name="type" value="${code.parentId }" /></td>
+							<td><input type="text" name="parentId" value="${code.parentId }" /></td>
 						</tr>
 						<tr>
-							<td><input type="submit" value="保存" /></td>
+							<td><input type="button" value="保存" onclick="save();"/></td>
+							<td><input type="button" onclick="goBack();" value="返回" /></td>
 						</tr>
 					</table>
 				</form>

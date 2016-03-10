@@ -12,9 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.zhuani21.review.auto.bean.Code;
 import com.zhuani21.review.bean.CodeCustom;
+import com.zhuani21.review.bean.CodeVO;
 import com.zhuani21.review.service.CodeService;
 
 @Controller
@@ -37,19 +40,28 @@ public class CodeController {
 		modelAndView.setViewName("codeList");
 		return modelAndView;
 	}
-	@RequestMapping(method={RequestMethod.GET},value={"/add"})
+	@RequestMapping(value={"/add"},method={RequestMethod.GET})
 	public ModelAndView add(HttpServletRequest req,HttpServletResponse resp) throws Exception {
-		return addAndEdit(req,resp,"add");
+		return addAndEditView(req,resp,"add");
 	}
 	@RequestMapping(value={"/add"},method={RequestMethod.POST})
-	public ModelAndView save(HttpServletRequest req,HttpServletResponse resp) throws Exception {
-		return addAndEdit(req,resp,"add");
+	public ModelAndView save(Code code) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		if(StringUtils.isBlank(code.getType()) || StringUtils.isBlank(code.getCode())){
+			modelAndView.addObject("errorMsg", "编码和编码类型不能为空");
+			modelAndView.addObject("code", code);
+			modelAndView.addObject("opType", "add");
+			modelAndView.setViewName("updateCode");
+			return modelAndView;
+		}
+		return modelAndView;
 	}
 	@RequestMapping("/edit")
 	public ModelAndView edit(HttpServletRequest req,HttpServletResponse resp) throws Exception {
-		return addAndEdit(req,resp,"edit");
+		return addAndEditView(req,resp,"edit");
 	}
-	private ModelAndView addAndEdit(HttpServletRequest req,HttpServletResponse resp,String opType) throws Exception{
+	
+	private ModelAndView addAndEditView(HttpServletRequest req,HttpServletResponse resp,String opType) throws Exception{
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("updateCode");
 		modelAndView.addObject("opType",opType);

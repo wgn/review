@@ -39,6 +39,7 @@ public class LoginAuthController {
 			modelAndView.addObject("user",user);
 			modelAndView.setViewName("login/success");
 		}else{
+			modelAndView.addObject("username",username);
 			modelAndView.addObject("loginErrorMsg", "用户名或密码错误");
 			modelAndView.setViewName("login/index");
 		}
