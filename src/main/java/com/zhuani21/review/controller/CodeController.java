@@ -50,6 +50,9 @@ public class CodeController {
 	}
 	@RequestMapping(value={"/add"},method={RequestMethod.POST})
 	public ModelAndView save(@Valid Code code,BindingResult bindingResult) throws Exception {
+		if(code!=null){ 
+			throw new RuntimeException("ex");
+		}
 		ModelAndView modelAndView = new ModelAndView();
 		if(bindingResult.hasErrors()){
 			modelAndView.addObject("validationErrors", bindingResult.getAllErrors());
