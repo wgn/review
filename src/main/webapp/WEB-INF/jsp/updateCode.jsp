@@ -28,16 +28,19 @@ function save(){
 </head>
 <body>
 	<div class="container">
-	<div class="row">
-			<div class="col-xs-8 col-md-offset-2">
-				<c:if test="${errorMsg!=null}">
-					<font color="red">${errorMsg }</font>
-				</c:if>
+		<c:if test="${validationErrors != null }">
+			<div class="row">
+				<div class="col-xs-8 col-md-offset-2">
+					<c:forEach items="${validationErrors}" var="error">
+						<font color="red">${error.defaultMessage }</font>
+					</c:forEach>
+				</div>
 			</div>
-		</div>
+			<hr/>
+		</c:if>
 		<div class="row">
 			<div class="col-xs-8 col-md-offset-2">
-				<form id="codeForm" action="${pageContext.request.contextPath }/code/${opType }.action" method="post">
+				<form name="codeForm" action="${pageContext.request.contextPath }/code/${opType }.action" method="post">
 
 					<table class="table table-bordered">
 						<tr>

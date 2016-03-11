@@ -170,7 +170,12 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.1.3.Final</version>
+			<version>4.3.0.Final</version>
+			<!-- 如果设置下面版本
+			<version>5.1.3.Final</version> 
+			将会，java.lang.NoClassDefFoundError: org/hibernate/validator/resourceloading/ResourceBundleLocator
+			坑爹！
+			-->
 		</dependency>
 		
 		

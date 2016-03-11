@@ -6,10 +6,14 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,11 +49,10 @@ public class CodeController {
 		return addAndEditView(req,resp,"add");
 	}
 	@RequestMapping(value={"/add"},method={RequestMethod.POST})
-	public ModelAndView save(Code code) throws Exception {
+	public ModelAndView save(@Valid Code code,BindingResult bindingResult) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		if(StringUtils.isBlank(code.getType()) || StringUtils.isBlank(code.getCode())){
-			modelAndView.addObject("errorMsg", "编码和编码类型不能为空");
-			modelAndView.addObject("code", code);
+		if(bindingResult.hasErrors()){
+			modelAndView.addObject("validationErrors", bindingResult.getAllErrors());
 			modelAndView.addObject("opType", "add");
 			modelAndView.setViewName("updateCode");
 			return modelAndView;

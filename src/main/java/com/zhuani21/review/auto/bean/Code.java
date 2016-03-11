@@ -1,12 +1,17 @@
 package com.zhuani21.review.auto.bean;
 
+import javax.validation.constraints.Size;
+
 public class Code {
     private Integer id;
-
+   
+    @Size(min=1,max=20,message="{code.type.msg}")
     private String type;
-
+   
+    @Size(min=1,max=20,message="{code.code.msg}")
     private String code;
-
+    
+    @Size(max=100,message="{code.name.msg}")
     private String name;
 
     private Integer parentId;
