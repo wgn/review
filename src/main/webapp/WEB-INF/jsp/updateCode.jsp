@@ -49,7 +49,13 @@ function save(){
 						</tr>
 						<tr>
 							<td>类型：</td>
-							<td><input type="text" name="type" value="${code.type }" /></td>
+							<td><input type="text" name="type" value="${code.type }" />
+								<select name="type">
+									<c:forEach items="${codeTypeSet }" var="codeType">
+										<option value="${codeType }">${codeType }</option>
+									</c:forEach>
+								</select>
+							</td>
 						</tr>
 						<tr>
 							<td>编码：</td>

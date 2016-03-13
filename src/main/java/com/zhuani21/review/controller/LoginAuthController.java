@@ -24,24 +24,24 @@ public class LoginAuthController {
 		HttpSession session = req.getSession();
 		User u  = (User) session.getAttribute("user");
 		if(null!=u){
-			modelAndView.setViewName("login/success");
+			modelAndView.setViewName("index");
 			return modelAndView;
 		}
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		if(StringUtils.isBlank(username) && StringUtils.isBlank(password)){
-			modelAndView.setViewName("login/index");
+			modelAndView.setViewName("login");
 			return modelAndView;
 		}
 		User user = loginAuthService.findUserByUsernamePassword(username, password);
 		if(null!=user){
 			req.getSession().setAttribute("user", user);
 			modelAndView.addObject("user",user);
-			modelAndView.setViewName("login/success");
+			modelAndView.setViewName("index");
 		}else{
 			modelAndView.addObject("username",username);
 			modelAndView.addObject("loginErrorMsg", "用户名或密码错误");
-			modelAndView.setViewName("login/index");
+			modelAndView.setViewName("login");
 		}
 		return modelAndView;
 	}

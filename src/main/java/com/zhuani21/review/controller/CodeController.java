@@ -12,23 +12,24 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zhuani21.review.auto.bean.Code;
 import com.zhuani21.review.bean.CodeCustom;
-import com.zhuani21.review.bean.CodeVO;
+import com.zhuani21.review.bean.CodeType;
+import com.zhuani21.review.exception.ReviewBaseException;
 import com.zhuani21.review.service.CodeService;
+import com.zhuani21.review.service.CodeTypeService;
 
 @Controller
 @RequestMapping("/code")
 public class CodeController {
 	@Autowired
 	CodeService codeService;
+	@Autowired
+	CodeTypeService codeTypeService;
 
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest req,HttpServletResponse resp) throws Exception {
@@ -51,7 +52,7 @@ public class CodeController {
 	@RequestMapping(value={"/add"},method={RequestMethod.POST})
 	public ModelAndView save(@Valid Code code,BindingResult bindingResult) throws Exception {
 		if(code!=null){ 
-			throw new RuntimeException("ex");
+			throw new ReviewBaseException("ex");
 		}
 		ModelAndView modelAndView = new ModelAndView();
 		if(bindingResult.hasErrors()){
@@ -73,6 +74,8 @@ public class CodeController {
 		modelAndView.addObject("opType",opType);
 		String codeId = req.getParameter("id");
 		if(StringUtils.isBlank(codeId)){
+			List<CodeType> codeTypeList = codeTypeService.selectCodeTypeList();
+			modelAndView.addObject("codeTypeList", codeTypeList);
 			return modelAndView;
 		}
 		CodeCustom code = codeService.queryCodeById(codeId);

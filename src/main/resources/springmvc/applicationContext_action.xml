@@ -41,4 +41,7 @@
 	        <property name="cacheSeconds" value="120"/>  
 	    </bean>
 	    <bean class="com.zhuani21.review.exception.resolver.GlobalExceptionHandler"></bean>
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name=""></property>
+	</bean> -->
 </beans>

@@ -27,10 +27,10 @@
 		<log4j-core.version>2.0-rc1</log4j-core.version>
 		<commons.logging.version>1.1.1</commons.logging.version>
 		<aspectj.version>1.7.4</aspectj.version>
-	</properties>
+	</properties> 
 
 	<dependencies>
-		<!--  jstl -->
+		<!--  jstl --> 
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
