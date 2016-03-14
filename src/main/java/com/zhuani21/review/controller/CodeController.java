@@ -18,9 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.zhuani21.review.auto.bean.Code;
 import com.zhuani21.review.bean.CodeCustom;
-import com.zhuani21.review.bean.CodeType;
 import com.zhuani21.review.service.CodeService;
-import com.zhuani21.review.service.CodeTypeService;
 
 @Controller
 @RequestMapping("/code")
@@ -30,8 +28,6 @@ public class CodeController {
 	
 	@Autowired
 	CodeService codeService;
-	@Autowired
-	CodeTypeService codeTypeService;
 
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest req,HttpServletResponse resp) throws Exception {

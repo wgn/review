@@ -5,7 +5,7 @@ public class JobCustom {
 	//作业名称
 	private String jobName;
 	//作业类型
-	private String jobType;
+	private String jobCycleType;
 	//详情描述
 	private String jobDescription;
 	//外部链接

@@ -14,18 +14,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-8 col-md-offset-2">
-				<form action="${pageContext.request.contextPath }/code/list.action" method="post">
+				<form action="${pageContext.request.contextPath }/job/list.action" method="post">
 					查询条件：
 					<table class="table table-bordered">
 						<tr>
 							<td>类型：</td>
 							<td><select name="codeType">
-									<c:forEach items="${codeTypeSet }" var="codeType">
-										<option value="${codeType }">${codeType }</option>
+									<c:forEach items="${jobTypeSet }" var="jobType">
+										<option value="${jobType }">${jobType }</option>
 									</c:forEach>
 							</select></td>
 							<td><input type="submit" value="查询" /></td>
-							<td><a href="${pageContext.request.contextPath }/code/add.action">新增</a></td>
+							<td><a href="${pageContext.request.contextPath }/job/add.action">新增</a></td>
 						</tr>
 					</table>
 					作业列表：
@@ -44,15 +44,19 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${codeList }" var="code">
+							<c:forEach items="${jobList }" var="job">
 								<tr>
-									<td hidden="hidden">${code.id }</td>
-									<td>${code.type }</td>
-									<td>${code.code}</td>
-									<td>${code.name }</td>
-									<td>${code.parentId }</td>
-									<td><a href="${pageContext.request.contextPath }/code/add.action?id=${code.id}">新增</a> | 
-									<a href="${pageContext.request.contextPath }/code/edit.action?id=${code.id}">修改</a></td>
+									<td hidden="hidden">${job.jobId }</td>
+									<td>${job.jobName }</td>
+									<td>${job.jobType}</td>
+									<td>${job.jobDescription }</td>
+									<td>${job.jobLink }</td>
+									<td>${job.jobStatus }</td>
+									<td>${job.filePath }</td>
+									<td>${job.currentDate }</td>
+									<td><a href="${pageContext.request.contextPath }/job/add.action?id=${job.jobId}">新增</a> | 
+									<a href="${pageContext.request.contextPath }/job/edit.action?id=${job.jobId}">修改</a> | 
+									<a href="${pageContext.request.contextPath }/job/delete.action?id=${job.jobId}">修改</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -44,18 +44,17 @@ insert into code (type,code,name) values ('sex','-','');
 insert into code (type,code,name) values ('sex','0','女');
 insert into code (type,code,name) values ('sex','1','男');
 ###################################################################
-#创建task表,(未执行)
-CREATE TABLE `task` (
-   `id` int(16) NOT NULL AUTO_INCREMENT,
-   `user_id` int(16) NOT NULL COMMENT '用户id',
-   `review_type` int(1) NOT NULL COMMENT '复习类型，不同的类型对应不同的复习方式',
-   `description` varchar(1000) COMMENT '作业描述',
-   `task_link` varchar(300) COMMENT '作业网络地址',
-   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态：1-有效；0-无效。 默认值1',
-   PRIMARY KEY (`id`),
-   UNIQUE KEY `login_user_id` (`user_id`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
-
+#创建job表
+ CREATE TABLE `job_` (
+   `job_id` int(16) NOT NULL AUTO_INCREMENT,
+   `job_name` varchar(128) DEFAULT NULL COMMENT '作业名称',
+   `job_cycle_type` varchar(35) DEFAULT NULL COMMENT '作业周期类型,周期表的外键',
+   `job_description` varchar(256) DEFAULT NULL COMMENT '作业描述',
+   `job_link` varchar(512) DEFAULT NULL COMMENT '外部链接',
+   `job_status` varchar(64) DEFAULT NULL COMMENT '作业状态（进度）',
+   `filepath` varchar(256) DEFAULT NULL COMMENT '地址（上传文件，下载作业）',
+   PRIMARY KEY (`job_id`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;
 ###################################################################
 #创建sub_task表(未执行) 增加了task表，自动根据review_type生产sub_type的数据。
 ###################################################################
