@@ -20,11 +20,12 @@
 						<tr>
 							<td>类型：</td>
 							<td><select name="codeType">
-									<c:forEach items="${codeTypeSet }" var="codeType">
-										<option value="${codeType }">${codeType }</option>
+									<option value=""> - -！ </option>
+									<c:forEach items="${codeTypeList }" var="codeType">
+										<option value="${codeType.code }" <c:if test="${selectedCodeType eq codeType.code}">selected="selected"</c:if>)>${codeType.name }</option>
 									</c:forEach>
 							</select></td>
-							<td><input type="submit" value="查询" /></td>
+							<td><input class="btn btn-default" type="submit" value="查询" /></td>
 							<td><a href="${pageContext.request.contextPath }/code/add.action">新增</a></td>
 						</tr>
 					</table>
@@ -49,7 +50,8 @@
 									<td>${code.name }</td>
 									<td>${code.parentId }</td>
 									<td><a href="${pageContext.request.contextPath }/code/add.action?id=${code.id}">新增</a> | 
-									<a href="${pageContext.request.contextPath }/code/edit.action?id=${code.id}">修改</a></td>
+									<a href="${pageContext.request.contextPath }/code/edit.action?id=${code.id}">修改</a> | 
+									<a href="${pageContext.request.contextPath }/code/delete.action?id=${code.id}">删除</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

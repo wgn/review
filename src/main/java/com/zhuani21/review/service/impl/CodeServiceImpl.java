@@ -10,8 +10,10 @@ import com.zhuani21.review.auto.bean.Code;
 import com.zhuani21.review.auto.bean.CodeExample;
 import com.zhuani21.review.auto.mapper.CodeMapper;
 import com.zhuani21.review.bean.CodeCustom;
+import com.zhuani21.review.exception.ReviewBaseException;
 import com.zhuani21.review.service.CodeService;
 import com.zhuani21.review.util.BeanCopyUtils;
+import com.zhuani21.review.util.CollectionCheckUtils;
 
 public class CodeServiceImpl implements CodeService {
 	@Autowired
@@ -28,14 +30,43 @@ public class CodeServiceImpl implements CodeService {
 		return codeCustomList;
 	}
 	@Override
-	public CodeCustom queryCodeById(String codeId) throws Exception {
+	public CodeCustom queryCodeById(Integer codeId)  {
 		CodeCustom codeCustom = new CodeCustom();
-		Integer id = null; 
-		if(StringUtils.isNotBlank(codeId)){
-			id = Integer.parseInt(codeId);
-		}
-		Code code = codeMapper.selectByPrimaryKey(id);
+		Code code = codeMapper.selectByPrimaryKey(codeId);
 		BeanUtils.copyProperties(code, codeCustom);
 		return codeCustom;
+	}
+	@Override
+	public List<CodeCustom> queryBaseCodeTypeList() throws Exception {
+		CodeExample codeExample = new CodeExample();
+		codeExample.createCriteria().andTypeEqualTo(CodeCustom.BASE_CODE_TYPE);
+		List<Code> codeList = codeMapper.selectByExample(codeExample);
+		List<CodeCustom> baseCodeCustomList = BeanCopyUtils.getCustomBeanList(codeList, CodeCustom.class);
+		return baseCodeCustomList;
+	}
+	@Override
+	public void insertCode(Code code) {
+		codeMapper.insert(code);
+	}
+	@Override
+	public Code queryCodeByCodeType(String type) throws ReviewBaseException {
+		if(StringUtils.isBlank(type)){
+			throw new ReviewBaseException("类型不能为空");
+		}
+		CodeExample codeExample = new CodeExample();
+		codeExample.createCriteria().andTypeEqualTo(CodeCustom.BASE_CODE_TYPE).andCodeEqualTo(type);
+		List<Code> originCodeList = codeMapper.selectByExample(codeExample);
+		if(CollectionCheckUtils.isNotBlankList(originCodeList)){
+			return originCodeList.get(0);
+		}
+		return null;
+	}
+	@Override
+	public void updateCode(Code code) {
+		codeMapper.updateByPrimaryKey(code);
+	}
+	@Override
+	public void deleteCodeById(Integer id) {
+		codeMapper.deleteByPrimaryKey(id);
 	}
 }
