@@ -27,6 +27,7 @@ function save(){
 </script>
 </head>
 <body>
+<%@include file="./include/head.jsp" %>
 	<div class="container">
 		<c:if test="${validationErrors != null }">
 			<div class="row">
@@ -38,23 +39,26 @@ function save(){
 			</div>
 			<hr/>
 		</c:if>
+		<c:if test="${baseCodeTypeError !=null }">
+			<div class="row">
+				<div class="col-xs-8 col-md-offset-2">
+					<font color="red">${baseCodeTypeError }</font>
+				</div>
+			</div>
+			<hr/>
+		</c:if>
 		<div class="row">
 			<div class="col-xs-8 col-md-offset-2">
 				<form name="codeForm" action="${pageContext.request.contextPath }/code/${opType }.action" method="post">
-
 					<table class="table table-bordered">
 						<tr>
 							<td>ID：</td>
-							<td><input type="text" disabled="disabled" hidden="true" name="id" value="${code.id }" /></td>
+							<td><input type="text" hidden="true" name="id" value="${code.id }" /></td>
 						</tr>
 						<tr>
 							<td>类型：</td>
-							<td><input type="text" name="type" value="${code.type }" />
-								<select name="type">
-									<c:forEach items="${codeTypeSet }" var="codeType">
-										<option value="${codeType }">${codeType }</option>
-									</c:forEach>
-								</select>
+							<td>							
+								<input type="text" name="type" value="${code.type }" />
 							</td>
 						</tr>
 						<tr>
@@ -70,8 +74,8 @@ function save(){
 							<td><input type="text" name="parentId" value="${code.parentId }" /></td>
 						</tr>
 						<tr>
-							<td><input type="button" value="保存" onclick="save();"/></td>
-							<td><input type="button" onclick="goBack();" value="返回" /></td>
+							<td><input class="btn btn-default" type="button" value="保存" onclick="save();"/></td>
+							<td><input class="btn btn-default" type="button" onclick="goBack();" value="返回" /></td>
 						</tr>
 					</table>
 				</form>

@@ -29,16 +29,7 @@ CREATE TABLE `user` (
  #登陆权限表初始化数据
  insert into login_auth (user_id,username,password) values (1,'admin','1234');
  ###################################################################
-  #创建code_type表
-  CREATE TABLE `code_type` (
-   `id` int(16) NOT NULL AUTO_INCREMENT,
-   `code` varchar(50) NOT NULL COMMENT '编码类型',
-   `name` varchar(200) DEFAULT NULL COMMENT '编码名称',
-   PRIMARY KEY (`id`),
-   UNIQUE KEY `code_type_code` (`code`),
-   UNIQUE KEY `code_type_name` (`name`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;
- #创建code表，code表的type字段是外键，它是code_type表的逻辑主键
+ #创建code表,当type等于‘origin’的时候，他是原始类型
  CREATE TABLE `code` (
    `id` int(16) NOT NULL AUTO_INCREMENT,
    `type` varchar(50) NOT NULL COMMENT '类型',
