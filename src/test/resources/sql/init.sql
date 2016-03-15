@@ -45,7 +45,7 @@ insert into code (type,code,name) values ('sex','0','女');
 insert into code (type,code,name) values ('sex','1','男');
 ###################################################################
 #创建job表
- CREATE TABLE `job_` (
+ CREATE TABLE `job` (
    `job_id` int(16) NOT NULL AUTO_INCREMENT,
    `job_name` varchar(128) DEFAULT NULL COMMENT '作业名称',
    `job_cycle_type` varchar(35) DEFAULT NULL COMMENT '作业周期类型,周期表的外键',

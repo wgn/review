@@ -33,14 +33,14 @@
 						<thead>
 							<tr>
 								<th hidden="hidden">ID</th>
-								<th>作业名称</th>
-								<th>作业类型</th>
-								<th>详情描述</th>
-								<th>外部链接</th>
-								<th>进度</th>
-								<th>下载作业</th>
-								<th>当前进度日期</th>
-								<th></th>
+								<th >作业名称</th>
+								<th >复习周期类型</th>
+								<th >详情描述</th>
+								<th >外部链接</th>
+								<th >进度</th>
+								<th >下载作业</th>
+								<th >当前进度日期</th>
+								<th ></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -48,12 +48,12 @@
 								<tr>
 									<td hidden="hidden">${job.jobId }</td>
 									<td>${job.jobName }</td>
-									<td>${job.jobType}</td>
+									<td>${job.jobCycleType}</td>
 									<td>${job.jobDescription }</td>
 									<td>${job.jobLink }</td>
 									<td>${job.jobStatus }</td>
-									<td>${job.filePath }</td>
-									<td>${job.currentDate }</td>
+									<td>${job.filepath }</td>
+									<td></td>
 									<td><a href="${pageContext.request.contextPath }/job/add.action?id=${job.jobId}">新增</a> | 
 									<a href="${pageContext.request.contextPath }/job/edit.action?id=${job.jobId}">修改</a> | 
 									<a href="${pageContext.request.contextPath }/job/delete.action?id=${job.jobId}">修改</a></td>
