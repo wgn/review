@@ -52,7 +52,7 @@ public class CodeController {
 			modelAndView.addObject("validationErrors", bindingResult.getAllErrors());
 			modelAndView.addObject("opType", "add");
 			modelAndView.addObject("code", code);
-			modelAndView.setViewName("updateCode");
+			modelAndView.setViewName("codeUpdate");
 			return modelAndView;
 		}
 		if(!CodeCustom.BASE_CODE_TYPE.equals(code.getType())){
@@ -61,7 +61,7 @@ public class CodeController {
 				modelAndView.addObject("baseCodeTypeError", "请先添加基本类型配置，基本类型为base，编码为要添加新类型的type，名称为新类型名");
 				modelAndView.addObject("opType", "add");
 				modelAndView.addObject("code", code);
-				modelAndView.setViewName("updateCode");
+				modelAndView.setViewName("codeUpdate");
 				return modelAndView;
 			}
 		}
@@ -103,7 +103,7 @@ public class CodeController {
 	
 	private ModelAndView addAndEditView(HttpServletRequest req,HttpServletResponse resp,String opType) throws Exception{
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("updateCode");
+		modelAndView.setViewName("codeUpdate");
 		modelAndView.addObject("opType",opType);
 		String codeId = req.getParameter("id");
 		if(StringUtils.isBlank(codeId)){
