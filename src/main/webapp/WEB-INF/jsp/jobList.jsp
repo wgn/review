@@ -50,9 +50,9 @@
 									<td>${job.jobName }</td>
 									<td>${job.jobCycleType}</td>
 									<td>${job.jobDescription }</td>
-									<td>${job.jobLink }</td>
+									<td><c:if test="${job.jobLink!=null }"><a target="_blank" href="${job.jobLink }">GOGOGO</a></c:if></td>
 									<td>${job.jobStatus }</td>
-									<td>${job.filepath }</td>
+									<td><c:if test="${job.filepath!=null }"><a target="_blank" href="/filedir/${job.filepath }">DOWNLOAD</a></c:if></td>
 									<td></td>
 									<td><a href="${pageContext.request.contextPath }/job/add.action?id=${job.jobId}">新增</a> | 
 									<a href="${pageContext.request.contextPath }/job/edit.action?id=${job.jobId}">修改</a> | 

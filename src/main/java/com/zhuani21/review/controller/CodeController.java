@@ -87,7 +87,7 @@ public class CodeController {
 	}
 	
 	@RequestMapping(value={"/edit"},method={RequestMethod.POST})
-	public ModelAndView edit(@Validated Code code,BindingResult bindingResult) throws Exception {
+	public ModelAndView edit(@Validated CodeCustom code,BindingResult bindingResult) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		CodeCustom dbCode = null;
 		if(code!=null && code.getId()!=null && code.getId()!=0){
