@@ -76,6 +76,10 @@ public class JobController {
 		if(StringUtils.isBlank(newFileDir) || jobFile==null){
 			return null;
 		}
+		File dir = new File(newFileDir);
+		if(!dir.exists()){
+			dir.mkdirs();
+		}
 		
 		String newFileName = null;
 		 //原始名称
