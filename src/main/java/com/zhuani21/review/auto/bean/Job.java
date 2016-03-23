@@ -13,6 +13,8 @@ public class Job {
 
     private String jobStatus;
 
+    private String oldFilename;
+
     private String filepath;
 
     public Integer getJobId() {
@@ -61,6 +63,14 @@ public class Job {
 
     public void setJobStatus(String jobStatus) {
         this.jobStatus = jobStatus == null ? null : jobStatus.trim();
+    }
+
+    public String getOldFilename() {
+        return oldFilename;
+    }
+
+    public void setOldFilename(String oldFilename) {
+        this.oldFilename = oldFilename == null ? null : oldFilename.trim();
     }
 
     public String getFilepath() {

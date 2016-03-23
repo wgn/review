@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.zhuani21.review.auto.bean.Code;
 import com.zhuani21.review.auto.bean.CodeExample;
@@ -14,7 +15,7 @@ import com.zhuani21.review.exception.ReviewBaseException;
 import com.zhuani21.review.service.CodeService;
 import com.zhuani21.review.util.BeanCopyUtils;
 import com.zhuani21.review.util.CollectionCheckUtils;
-
+@Service("codeService")
 public class CodeServiceImpl implements CodeService {
 	@Autowired
 	private CodeMapper codeMapper;

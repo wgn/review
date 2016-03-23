@@ -52,6 +52,7 @@ insert into code (type,code,name) values ('sex','1','男');
    `job_description` varchar(256) DEFAULT NULL COMMENT '作业描述',
    `job_link` varchar(512) DEFAULT NULL COMMENT '外部链接',
    `job_status` varchar(64) DEFAULT NULL COMMENT '作业状态（进度）',
+   `old_filename` varchar(256) DEFAULT NULL COMMENT '文件原名',
    `filepath` varchar(256) DEFAULT NULL COMMENT '地址（上传文件，下载作业）',
    PRIMARY KEY (`job_id`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;

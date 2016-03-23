@@ -514,6 +514,76 @@ public class JobExample {
             return (Criteria) this;
         }
 
+        public Criteria andOldFilenameIsNull() {
+            addCriterion("old_filename is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameIsNotNull() {
+            addCriterion("old_filename is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameEqualTo(String value) {
+            addCriterion("old_filename =", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameNotEqualTo(String value) {
+            addCriterion("old_filename <>", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameGreaterThan(String value) {
+            addCriterion("old_filename >", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameGreaterThanOrEqualTo(String value) {
+            addCriterion("old_filename >=", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameLessThan(String value) {
+            addCriterion("old_filename <", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameLessThanOrEqualTo(String value) {
+            addCriterion("old_filename <=", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameLike(String value) {
+            addCriterion("old_filename like", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameNotLike(String value) {
+            addCriterion("old_filename not like", value, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameIn(List<String> values) {
+            addCriterion("old_filename in", values, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameNotIn(List<String> values) {
+            addCriterion("old_filename not in", values, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameBetween(String value1, String value2) {
+            addCriterion("old_filename between", value1, value2, "oldFilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andOldFilenameNotBetween(String value1, String value2) {
+            addCriterion("old_filename not between", value1, value2, "oldFilename");
+            return (Criteria) this;
+        }
+
         public Criteria andFilepathIsNull() {
             addCriterion("filepath is null");
             return (Criteria) this;

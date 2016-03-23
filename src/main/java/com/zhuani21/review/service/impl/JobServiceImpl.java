@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.zhuani21.review.auto.bean.Job;
 import com.zhuani21.review.auto.mapper.JobMapper;
 import com.zhuani21.review.bean.JobCustom;
 import com.zhuani21.review.service.JobService;
-
+@Service("jobService")
 public class JobServiceImpl implements JobService {
 	
 	@Autowired

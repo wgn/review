@@ -44,15 +44,20 @@ function save(){
 						</tr>
 						<tr>
 							<td>详情描述：</td>
-							<td><input type="text" name="jobDescription" value="${job.jobDescription }" /></td>
+							<td><textarea rows="3" name="jobDescription"  placeholder="你可以写一些提示给未来的自己...">${job.jobDescription }</textarea></td>
 						</tr>
 						<tr>
 							<td>外部链接：</td>
-							<td><input type="text" name="jobLink" value="${job.jobLink }" /></td>
+							<td><textarea rows="3"  name="jobLink" placeholder="如果你的内容保存在其他地方...">${job.jobLink }</textarea></td>
+						</tr>
+						<tr>
+							<td>原上传文件：</td>
+							<td><input type="text" value="${job.filepath }" readOnly />
+							</td>
 						</tr>
 						<tr>
 							<td>上传文件：</td>
-							<td><input type="file"  name="jobFile"/> </td>
+							<td><input type="file"  name="jobFile"/></td>
 						</tr>
 						<tr>
 							<td><input class="btn btn-default" type="button" value="保存" onclick="save();"/></td>
