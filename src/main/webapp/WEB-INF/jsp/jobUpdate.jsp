@@ -52,7 +52,7 @@ function save(){
 						</tr>
 						<tr>
 							<td>原上传文件：</td>
-							<td><input type="text" value="${job.filepath }" readOnly />
+							<td><input type="text" value="${job.oldFilename }" readOnly />
 							</td>
 						</tr>
 						<tr>
